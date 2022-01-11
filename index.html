@@ -19,7 +19,10 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav
+      class="navbar navbar-expand-lg fixed-top navbar-light bg-white"
+      style="height: 10vh"
+    >
       <div class="container">
         <a class="navbar-brand" href="#">Tempellemahbang</a>
         <button
@@ -39,66 +42,240 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tentang</a>
+              <a class="nav-link" href="#tentang">Tentang</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Berita</a>
+              <a class="nav-link" href="#berita">Berita</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Video</a>
+              <a class="nav-link" href="#video">Video</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Galeri</a>
+              <a class="nav-link" href="#galeri">Galeri</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pemesanan</a>
+              <a class="nav-link" href="#pemesanan">Pemesanan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Kontak</a>
+              <a class="nav-link" href="#kontak">Kontak</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Fitur-fitur lain</a>
+              <a class="nav-link" href="#fitur-fitur-lain">Fitur-fitur lain</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- akhir navbar -->
-
     <!-- section 1 (home) -->
-    <section>
-      <img src="img/pemandangan.jpg" class="img-fluid" alt="..." />
-      <!-- <h1 class="display-4 centered">Sugeng Rawuh Ing Desa Tempellemahbang</h1> -->
+    <section id="home">
+      <div class="container w-100 h-100">
+        <img src="img/pemandangan.jpg" class="full-section" alt="..." />
+      </div>
     </section>
     <!-- akhir section 1 -->
 
     <!-- section 2 (about) -->
-    <section>
-      <h1 class="display-4 text-center">Tentang Tempellemahbang</h1>
-      <p class="lead text-center">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        faucibus commodo enim sed laoreet. Aliquam a euismod nulla, et sodales
-        nisl. Etiam pellentesque justo a imperdiet feugiat. Donec tincidunt ut
-        lacus a tincidunt. Maecenas egestas tellus vitae elit viverra, id
-        commodo turpis interdum. Donec luctus non magna sit amet porta.
-        Vestibulum tempus fermentum leo ac consequat.
-      </p>
+    <section id="tentang">
+      <div class="container w-100 h-100">
+        <h1 class="display-4 text-center">Tentang Tempellemahbang</h1>
+        <p class="lead text-center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          faucibus commodo enim sed laoreet. Aliquam a euismod nulla, et sodales
+          nisl. Etiam pellentesque justo a imperdiet feugiat. Donec tincidunt ut
+          lacus a tincidunt. Maecenas egestas tellus vitae elit viverra, id
+          commodo turpis interdum. Donec luctus non magna sit amet porta.
+          Vestibulum tempus fermentum leo ac consequat.
+        </p>
+      </div>
     </section>
     <!-- akhir section 2 -->
 
     <!-- dection 3 (berita) -->
-    <section>
+    <section id="berita">
       <h1 class="display-4 text-center">Berita</h1>
-      <div class="card" style="width: 18rem;">
-        <img src="img/berita1.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Barongan</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat ligula rhoncus, pharetra ligula a, iaculis justo.</p>
-          <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+      <div class="container w-100 h-100">
+        <div class="card mx-auto" style="width: 25%">
+          <img src="img/berita1.jpg" class="card-img-top w-100" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Barongan</h5>
+            <p class="card-text mh-10">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              consequat ligula rhoncus, pharetra ligula a, iaculis justo.
+            </p>
+            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+          </div>
         </div>
       </div>
     </section>
     <!-- akhir section 3 -->
+
+    <!-- section 4 (video) -->
+    <section id="video">
+      <h1 class="display-4 text-center">Video</h1>
+      <div class="container w-100 h-100">
+        <iframe
+          class="w-75 h-75"
+          src="https://www.youtube.com/embed/W9zD0DWDoY4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+    <!-- akhir section 4 -->
+
+    <!-- section 5 (galeri) -->
+    <section id="galeri">
+      <h1 class="display-4 text-center">Galeri</h1>
+      <div
+        id="carouselExampleIndicators"
+        style="width: 80vh"
+        class="carousel slide mx-auto"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/carousel1.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/carousel2.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/carousel3.jpg" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <!-- akhir section 5 -->
+
+    <!-- section 6 (pemesanan) -->
+    <section id="pemesanan">
+      <h1 class="display-4 text-center">Paket Wisata</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card text-center">
+              <div class="card-header">Paket A: Waduk</div>
+              <div class="card-body">
+                <h5 class="card-title">Rp. 75.000/orang</h5>
+                <h5 class="card-title">Seloparang</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Jasa Pemandu</li>
+                <li class="list-group-item">Peralatan</li>
+                <li class="list-group-item">Asuransi</li>
+                <li class="list-group-item">Transportasi</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-center">
+              <div class="card-header">Paket A: Waduk</div>
+              <div class="card-body">
+                <h5 class="card-title">Rp. 75.000/orang</h5>
+                <h5 class="card-title">Seloparang</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Jasa Pemandu</li>
+                <li class="list-group-item">Peralatan</li>
+                <li class="list-group-item">Asuransi</li>
+                <li class="list-group-item">Transportasi</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-center">
+              <div class="card-header">Paket A: Waduk</div>
+              <div class="card-body">
+                <h5 class="card-title">Rp. 75.000/orang</h5>
+                <h5 class="card-title">Seloparang</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Jasa Pemandu</li>
+                <li class="list-group-item">Peralatan</li>
+                <li class="list-group-item">Asuransi</li>
+                <li class="list-group-item">Transportasi</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="d-grid gap-2 mt-2">
+              <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- akhir section 6 -->
+
+    <!-- section 7 (kontak) -->
+    <section id="kontak">
+      <h1 class="display-4 text-center">Kontak</h1>
+      <a href="#"></a>
+    </section>
+    <!-- akhir section 7 -->
+
+    <!-- section 8 (fitur-lain) -->
+    <section id="fitur-fitur-lain">
+      <h1 class="display-4 text-center">Fitur-Fitur Lain</h1>
+    </section>
+    <!-- akhir section 7 -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
