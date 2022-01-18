@@ -3,7 +3,6 @@ include "../connection.php";
 ?>
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="page-header"><i class="fa fa-laptop"></i> Masters</h3>
         <ol class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="index.php">Home</a></li>
             <li><i class="fa fa-laptop"></i>Berita</li>						  	
@@ -56,8 +55,7 @@ include "../connection.php";
                             $table = "berita";
                             $column = "id_berita";
                             echo "<div class='btn-group'>
-                                    <a class='btn btn-primary' href=''><i class='icon_plus_alt2'></i></a>
-                                    <a class='btn btn-success' href='#'><i class='icon_check_alt2'></i></a>
+                                    <a class='btn btn-primary' href='dashboard.php?page=update_berita&judul=$judul&isi=$isi&id_berita=$id_berita'><i class='icon_pencil-edit_alt'></i></a>
                                     <a class='btn btn-danger' href='delete.php?table=$table&column=$column&value=$id_berita'><i class='icon_close_alt2'></i></a>
                                 </div>"
                         ?>

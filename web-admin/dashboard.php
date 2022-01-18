@@ -93,6 +93,7 @@
                         case "video": include("content_video.php");break;
                         case "galeri": include("content_galeri.php");break;
                         case "pesanan": include("content_pesanan.php");break;
+                        case "update_berita": include("content_update_berita.php");break;
 
                         default: include("content-dashboard.php");break;
                     }
