@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     if ($user_ditemukan) {
       if ($user_ditemukan['password'] == md5($pass)) {
         // $_SESSION['username'] = $username;
-        header("location: dashboard.php");
+        header("location: dashboard.php?page=dashboard");
       }
     } else {
       header("Location:login.php?CannotLogin");
