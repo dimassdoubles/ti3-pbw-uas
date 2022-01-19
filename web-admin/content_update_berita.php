@@ -1,5 +1,5 @@
 <?php 
-include "../connection.php";
+include "connection.php";
 if (isset($_POST['submit'])) {
     if (isset($_POST['judul']) && isset($_POST['isi'])) {
         $id_berita = $_GET['id_berita'];
