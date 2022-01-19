@@ -569,7 +569,7 @@ include "connection.php";
           <div class="panel panel-default text-center">
             <div class="panel-heading">
               <h1>Paket A</h1>
-              <h2 style="color: white">Waduk Seloparang</h2>
+              <h4 style="color: white">Waduk Seloparang</h4>
             </div>
             <div class="panel-body">
               <p>Jasa Pemandu</p>
@@ -588,7 +588,7 @@ include "connection.php";
           <div class="panel panel-default text-center">
             <div class="panel-heading">
               <h1>Paket B</h1>
-              <h2 style="color: white">Budaya dan Kerajinan</h2>
+              <h4 style="color: white">Budaya dan Kerajinan</h4>
             </div>
             <div class="panel-body">
               <p>Jasa Pemandu</p>
@@ -607,7 +607,7 @@ include "connection.php";
           <div class="panel panel-default text-center">
             <div class="panel-heading">
               <h1>Paket C</h1>
-              <h2 style="color: white">Flying Fox Seloparang</h2>
+              <h4 style="color: white">Flying Fox Seloparang</h4>
             </div>
             <div class="panel-body">
               <p>Jasa Pemandu</p>
@@ -695,16 +695,56 @@ include "connection.php";
       >
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#komentarCarousel" data-slide-to="0" class="active"></li>
+          <?php 
+            $load_komentar = mysqli_query($connect, "SELECT * FROM komentar");
+            if (mysqli_num_rows($load_komentar) > 0) {
+              $row = mysqli_fetch_array($load_komentar);
+              $i = 1;
+              echo "<li data-target='#komentarCarousel' data-slide-to='0' class='active'></li>";
+              while ($row = mysqli_fetch_array($load_komentar)) {
+                echo "<li data-target='#komentarCarousel' data-slide-to='$i'></li>";
+                $i ++;
+              }
+            }
+
+          ?>
+          <!-- <li data-target='#komentarCarousel' data-slide-to='0' class='active'></li>
           <li data-target="#komentarCarousel" data-slide-to="1"></li>
-          <li data-target="#komentarCarousel" data-slide-to="2"></li>
+          <li data-target="#komentarCarousel" data-slide-to="2"></li> -->
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
+          <?php 
+            $load_komentar = mysqli_query($connect, "SELECT * FROM komentar");
+            if (mysqli_num_rows($load_komentar) > 0) {
+              $row = mysqli_fetch_array($load_komentar);
+              $nama = $row['nama'];
+              $komentar = $row['komentar'];
+              echo "<div class='item active'>
+                    <h4>
+                      ''$komentar''<br /><span
+                        >$nama</span
+                      >
+                    </h4>
+                  </div>";
+              while ($row = mysqli_fetch_array($load_komentar)) {
+                $nama = $row['nama'];
+                $komentar = $row['komentar'];
+                echo "<div class='item'>
+                      <h4>
+                        ''$komentar''<br /><span
+                          >$nama</span
+                        >
+                      </h4>
+                    </div>";
+              }
+            }
+
+          ?>
+          <!-- <div class='item active'>
             <h4>
-              "This company is the best. I am so happy with the result!"<br /><span
+              ''This company is the best. I am so happy with the result!''<br /><span
                 >Michael Roe, Vice President, Comment Box</span
               >
             </h4>
@@ -720,7 +760,7 @@ include "connection.php";
                 >Chandler Bing, Actor, FriendsAlot</span
               >
             </h4>
-          </div>
+          </div> -->
         </div>
 
         <!-- Left and right controls -->
