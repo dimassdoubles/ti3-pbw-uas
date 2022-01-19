@@ -479,41 +479,56 @@ include "connection.php";
       >
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#galeriCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#galeriCarousel" data-slide-to="1"></li>
-          <li data-target="#galeriCarousel" data-slide-to="2"></li>
+          <?php 
+
+            $load_foto = mysqli_query($connect, "SELECT * FROM galeri");
+            if (mysqli_num_rows($load_foto) >0) {
+              $row = mysqli_fetch_array($load_foto);
+              $i = 1;
+              echo "<li data-target='#galeriCarousel' data-slide-to='0' class='active'></li>";
+              while ($row = mysqli_fetch_array($load_foto)) {
+                echo "<li data-target='#galeriCarousel' data-slide-to='$i'></li>";
+                $i ++;
+              }
+
+            }
+
+          ?>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <div>
-              <img
-              src="img/galeri/galeri1.jpg"
-              alt=""
-              style="width: 80%; margin: auto"
-              />
-            </div>
-          </div>
-          <div class="item">
-            <div>
-              <img
-              src="img/galeri/galeri2.jpg"
-              alt=""
-              style="width: 80%; margin: auto"
-              />
-            </div>
-          </div>
-          <div class="item">
-            <div>
-              <img
-              src="img/galeri/galeri3.jpg"
-              alt=""
-              style="width: 80%; margin: auto"
-              />
-            </div>
-          </div>
-        </div>
+        <?php 
+
+          $load_foto = mysqli_query($connect, "SELECT * FROM galeri");
+          if (mysqli_num_rows($load_foto) >0) {
+            $row = mysqli_fetch_array($load_foto);
+            $gambar = $row['gambar'];
+            echo "<div class='item active'>
+                  <div>
+                    <img
+                    src='img/galeri/$gambar'
+                    alt=''
+                    style='width: 80%; margin: auto'
+                    />
+                  </div>
+                </div>";
+            while ($row = mysqli_fetch_array($load_foto)) {
+              $gambar = $row['gambar'];
+              echo "<div class='item'>
+                      <div>
+                        <img
+                        src='img/galeri/$gambar'
+                        alt=''
+                        style='width: 80%; margin: auto'
+                        />
+                      </div>
+                    </div>";
+            }
+
+          }
+
+        ?>
 
         <!-- Left and right controls -->
         <a
