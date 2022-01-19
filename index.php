@@ -380,27 +380,63 @@ include "connection.php";
       >
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#videoCarousel" data-slide-to="0" class="active"></li>
-          <!-- php disini -->
+          <?php 
+          
+          $load_video = mysqli_query($connect, "SELECT * FROM video");
+          if (mysqli_num_rows($load_video) > 0) {
+            $row = mysqli_fetch_assoc($load_video);
+            $i = 1;
+            echo "<li data-target='#videoCarousel' data-slide-to='0' class='active'></li>";
+            while ($row = mysqli_fetch_array($load_video)) {
+              echo "<li data-target='#videoCarousel' data-slide-to='$i'></li>";
+              $i ++;
+            }
+          }
+
+          ?>
 
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <div class="iframecontainer">
-              <iframe
-                class="responsive-iframe"
-                src="https://www.youtube.com/embed/W9zD0DWDoY4"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-          </div>
-          </div>
+          <?php 
+            
+            $load_video = mysqli_query($connect, "SELECT * FROM video");
+            if (mysqli_num_rows($load_video) > 0) {
+              $row = mysqli_fetch_assoc($load_video);
+              $link = $row['link'];
+              echo "<div class='item active'>
+                      <div class='iframecontainer'>
+                        <iframe
+                          class='responsive-iframe'
+                          src='$link'
+                          title='YouTube video player'
+                          frameborder='0'
+                          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                          allowfullscreen
+                        >
+                        </iframe>
+                      </div>
+                    </div>";
+              while ($row = mysqli_fetch_array($load_video)) {
+                $link = $row['link'];
+                echo "<div class='item'>
+                        <div class='iframecontainer'>
+                          <iframe
+                            class='responsive-iframe'
+                            src='$link'
+                            title='YouTube video player'
+                            frameborder='0'
+                            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                            allowfullscreen
+                          >
+                          </iframe>
+                        </div>
+                      </div>";
+              }
+            }
+
+            ?>
         </div>
 
         <!-- Left and right controls -->
@@ -453,7 +489,7 @@ include "connection.php";
           <div class="item active">
             <div>
               <img
-              src="img/kesenian.jpeg"
+              src="img/galeri/galeri1.jpg"
               alt=""
               style="width: 80%; margin: auto"
               />
@@ -462,7 +498,7 @@ include "connection.php";
           <div class="item">
             <div>
               <img
-              src="img/kesenian.jpeg"
+              src="img/galeri/galeri2.jpg"
               alt=""
               style="width: 80%; margin: auto"
               />
@@ -471,7 +507,7 @@ include "connection.php";
           <div class="item">
             <div>
               <img
-              src="img/kesenian.jpeg"
+              src="img/galeri/galeri3.jpg"
               alt=""
               style="width: 80%; margin: auto"
               />
