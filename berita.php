@@ -1,3 +1,9 @@
+<?php 
+
+include "connection.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -245,7 +251,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Tempelemahbang</a>
+          <a class="navbar-brand" href="index.php">Tempelemahbang</a>
         </div>
         <!-- <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
@@ -262,21 +268,31 @@
 
 
     <div id="berita" class="container-fluid">
+    <?php 
+
+        if ($_GET['id']) {
+          $id = $_GET['id'];
+          $read_berita = mysqli_query($connect, "SELECT * FROM berita WHERE id_berita='$id'");
+          if ($read_berita) {
+            $result = mysqli_fetch_array($read_berita);
+            $judul = $result['judul'];
+            $isi = $result['isi'];
+            $gambar = $result['gambar'];
+          }
+        };
+
+    ?>
+      <h2 class="text-center"><?php echo "$judul" ?></h2>
       <div class="row">
-        <div class="col-sm-12">
-          <h2 class="text-center">Judul</h2>
-          <img src="img/berita/kesenian.jpg" alt="">
-          <p><strong>author</strong></p>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <?php echo "<img src='img/berita/$gambar' style='width: 100%;' alt=''>" ?>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12"> 
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat
-            non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.
+            <?php echo "$isi" ?>
           </p>
         </div>
       </div>

@@ -317,16 +317,19 @@ include "connection.php";
         if (mysqli_num_rows($load_berita) == 1) {
           for ($i = 0; $i< 1; $i++) {
             $result = mysqli_fetch_array($load_berita);
+            $id = $result['id_berita'];
             $gambar = $result['gambar'];
             $judul = $result['judul'];
             $isi = $result['isi'];
             echo "<div class='col-sm-4'></div>
                   <div class='col-sm-4'>
-                    <div class='thumbnail'>
-                      <img src='./img/berita/$gambar' width='400' height='300' />
-                      <p><strong>$judul</strong></p>
-                      <div class='isi_berita'>$isi</div>
-                    </div>
+                    <a href='berita.php?id=$id'>
+                      <div class='thumbnail'>
+                        <img src='./img/berita/$gambar' width='400' height='300' />
+                        <p><strong>$judul</strong></p>
+                        <div class='isi_berita'>$isi</div>
+                      </div>
+                    </a>
                   </div>";
           }
         } else if (mysqli_num_rows($load_berita) == 2) {
@@ -335,29 +338,35 @@ include "connection.php";
 
           for ($i = 0; $i< 2; $i++) {
             $result = mysqli_fetch_array($load_berita);
+            $id = $result['id_berita'];
             $gambar = $result['gambar'];
             $judul = $result['judul'];
             $isi = $result['isi'];
             echo "<div class='col-sm-4'>
-                    <div class='thumbnail'>
-                      <img src='./img/berita/$gambar' width='400' height='300' />
-                      <p><strong>$judul</strong></p>
-                      <div class='isi_berita'>$isi</div>
-                    </div>
+                    <a href='berita.php?id=$id'>
+                      <div class='thumbnail'>
+                        <img src='./img/berita/$gambar' width='400' height='300' />
+                        <p><strong>$judul</strong></p>
+                        <div class='isi_berita'>$isi</div>
+                      </div>
+                    </a>
                   </div>";
           }
         } else if (mysqli_num_rows($load_berita) >= 3) {
           for ($i = 0; $i< 3; $i++) {
             $result = mysqli_fetch_array($load_berita);
+            $id = $result['id_berita'];
             $gambar = $result['gambar'];
             $judul = $result['judul'];
             $isi = $result['isi'];
             echo "<div class='col-sm-4'>
-                    <div class='thumbnail'>
-                      <img src='./img/berita/$gambar' width='400' height='300' />
-                      <p><strong>$judul</strong></p>
-                      <div class='isi_berita'>$isi</div>
-                    </div>
+                    <a href='berita.php?id=$id'>
+                      <div class='thumbnail'>
+                        <img src='./img/berita/$gambar' width='400' height='300' />
+                        <p><strong>$judul</strong></p>
+                        <div class='isi_berita'>$isi</div>
+                      </div>
+                    </a>
                   </div>";
           }
         }
@@ -708,9 +717,6 @@ include "connection.php";
             }
 
           ?>
-          <!-- <li data-target='#komentarCarousel' data-slide-to='0' class='active'></li>
-          <li data-target="#komentarCarousel" data-slide-to="1"></li>
-          <li data-target="#komentarCarousel" data-slide-to="2"></li> -->
         </ol>
 
         <!-- Wrapper for slides -->
@@ -742,25 +748,6 @@ include "connection.php";
             }
 
           ?>
-          <!-- <div class='item active'>
-            <h4>
-              ''This company is the best. I am so happy with the result!''<br /><span
-                >Michael Roe, Vice President, Comment Box</span
-              >
-            </h4>
-          </div>
-          <div class="item">
-            <h4>
-              "One word... WOW!!"<br /><span>John Doe, Salesman, Rep Inc</span>
-            </h4>
-          </div>
-          <div class="item">
-            <h4>
-              "Could I... BE any more happy with this company?"<br /><span
-                >Chandler Bing, Actor, FriendsAlot</span
-              >
-            </h4>
-          </div> -->
         </div>
 
         <!-- Left and right controls -->
@@ -801,7 +788,7 @@ include "connection.php";
           >www.w3schools.com</a
         >
       </p>
-      <p>Customized by Dimas Saputro - A11.2020.12497</p>
+      <p>Customized by Dimas Saputro</p>
     </footer>
 
     <script>
