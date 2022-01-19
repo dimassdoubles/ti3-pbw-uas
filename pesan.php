@@ -1,3 +1,38 @@
+<?php 
+
+echo "halo";
+
+include "connection.php";
+
+echo "halo";
+
+$jenis_paket = $_GET['paket'];
+
+echo $jenis_paket;
+
+if (isset($_POST["submit"])) {
+  $nama = $_POST['nama'];
+  $email = $_POST['email'];
+  $jumlah = $_POST['jumlah'];
+
+  if ($jumlah > 0) {
+    if ($jenis_paket == "a") {
+      $total = 75000 * $jumlah;
+    } else if ($jenis_paket == "b") {
+      $total = 75000 * $jumlah;
+    } else if ($jenis_paket == "c") {
+      $total = 65000 * $jumlah;
+    }
+
+    $insert = mysqli_query($connect, "INSERT INTO pesanan (id_pesanan, nama, email, paket, jumlah, total) VALUES (NULL, '$nama', '$email', '$jenis_paket', $jumlah, $total)");
+    if ($insert) {
+      header("location: komentar.php?nama=$nama");
+    }
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -247,30 +282,26 @@
           </button>
           <a class="navbar-brand" href="index.html">Tempelemahbang</a>
         </div>
-        <!-- <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#tentang">TENTANG</a></li>
-            <li><a href="#berita">BERITA</a></li>
-            <li><a href="#video">VIDEO</a></li>
-            <li><a href="#galeri">GALERI</a></li>
-            <li><a href="#pemesanan">PEMESANAN</a></li>
-            <li><a href="#kontak">KONTAK</a></li>
-          </ul>
-        </div> -->
       </div>
     </nav>
 
     <div class="container-fluid">
       <h3 class="text-center" style="margin-bottom: 24px">
-        Silahkan Masukan Komentar Anda
+        Lengkapi Form Pemesanan
       </h3>
       <div style="width: 30%; margin: auto">
         <form action="" method="post">
-            <textarea class="form-control" name="komentar" id="" cols="30" rows="10"></textarea>
+          <p>Nama Lengkap</p>
+          <input class="form-control" type="text" required name="nama"/>
+          <p>Email</p>
+          <input class="form-control" type="email" required name="email"/>
+          <p>Jumlah Orang</p>
+          <input class="form-control" type="number" required name="jumlah"/>
           <button
             class="btn btn-primary"
             type="submit"
             style="margin-top: 8px; width: 100%"
+            name="submit"
           >
             Submit
           </button>

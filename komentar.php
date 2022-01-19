@@ -1,3 +1,19 @@
+<?php 
+
+include "connection.php";
+
+$nama = $_GET['nama'];
+
+if (isset($_POST['submit'])) {
+  $komentar = $_POST['komentar'];
+  $insert = mysqli_query($connect, "INSERT INTO komentar (id_komentar, nama, komentar) VALUES (NULL, '$nama', '$komentar')");
+  if ($insert) {
+    header("location: index.php");
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -247,35 +263,22 @@
           </button>
           <a class="navbar-brand" href="index.html">Tempelemahbang</a>
         </div>
-        <!-- <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#tentang">TENTANG</a></li>
-            <li><a href="#berita">BERITA</a></li>
-            <li><a href="#video">VIDEO</a></li>
-            <li><a href="#galeri">GALERI</a></li>
-            <li><a href="#pemesanan">PEMESANAN</a></li>
-            <li><a href="#kontak">KONTAK</a></li>
-          </ul>
-        </div> -->
+
       </div>
     </nav>
 
     <div class="container-fluid">
       <h3 class="text-center" style="margin-bottom: 24px">
-        Lengkapi Form Pemesanan
+        Silahkan Masukan Komentar Anda
       </h3>
       <div style="width: 30%; margin: auto">
         <form action="" method="post">
-          <p>Nama Lengkap</p>
-          <input class="form-control" type="text" required name="nama"/>
-          <p>Email</p>
-          <input class="form-control" type="email" required name="email"/>
-          <p>Jumlah Orang</p>
-          <input class="form-control" type="number" required name="jumlah"/>
+            <textarea class="form-control" name="komentar" id="" cols="30" rows="10"></textarea>
           <button
             class="btn btn-primary"
             type="submit"
             style="margin-top: 8px; width: 100%"
+            name="submit"
           >
             Submit
           </button>

@@ -589,7 +589,7 @@ include "connection.php";
             <div class="panel-footer">
               <h3>Rp 75.000</h3>
               <h4>per orang</h4>
-              <button class="btn btn-lg">Pesan</button>
+              <a class="btn btn-lg" href="pesan.php?paket=a">Pesan</a>
             </div>
           </div>
         </div>
@@ -608,7 +608,7 @@ include "connection.php";
             <div class="panel-footer">
               <h3>Rp 75.000</h3>
               <h4>per orang</h4>
-              <button class="btn btn-lg">Pesan</button>
+              <a class="btn btn-lg" href="pesan.php?paket=b">Pesan</a>
             </div>
           </div>
         </div>
@@ -627,7 +627,7 @@ include "connection.php";
             <div class="panel-footer">
               <h3>Rp 65.000</h3>
               <h4>per orang</h4>
-              <button class="btn btn-lg">Pesan</button>
+              <a class="btn btn-lg" href="pesan.php?paket=c">Pesan</a>
             </div>
           </div>
         </div>
