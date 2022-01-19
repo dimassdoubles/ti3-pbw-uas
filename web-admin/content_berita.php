@@ -4,7 +4,7 @@ include "../connection.php";
 <div class="row">
     <div class="col-lg-12">
         <ol class="breadcrumb">
-            <li><i class="fa fa-home"></i><a href="index.php">Home</a></li>
+            <li><i class="fa fa-home"></i><a href="dashboard.php">Home</a></li>
             <li><i class="fa fa-laptop"></i>Berita</li>						  	
         </ol>
     </div>

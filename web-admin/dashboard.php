@@ -98,7 +98,7 @@
                         default: include("content-dashboard.php");break;
                     }
                 } else {
-                    include("content-dashboard.php");
+                    include("content_dashboard.php");
                 }
                 
                 ?>
