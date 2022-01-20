@@ -19,6 +19,8 @@ if (isset($_GET['table']) && isset($_GET['column']) && isset($_GET['value'])) {
             header("location: dashboard.php?page=pesanan");
         } else if ($table == "video") {
             header("location: dashboard.php?page=video");
+        } else if ($table == "komentar") {
+            header("location: dashboard.php?page=komentar");
         }
     }
     
