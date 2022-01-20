@@ -11,6 +11,7 @@ include "connection.php";
 </div>              
 <div class="row">
     <div class="col-lg-12">
+        <a class="btn btn-success" href="dashboard.php?page=insert_berita" style="margin-bottom: 8px;">Tambah Berita</a>
         <section class="panel">
             <header class="panel-heading">
                 Berita

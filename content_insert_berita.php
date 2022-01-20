@@ -2,22 +2,23 @@
 include "connection.php";
 if (isset($_POST['submit'])) {
     if (isset($_POST['judul']) && isset($_POST['isi'])) {
-        $id_berita = $_GET['id_berita'];
         $judul = $_POST['judul'];
         $isi = $_POST['isi'];
-        if ($_FILES['uploadfile']!=null) {
+        if ($_FILES['uploadfile']['size']!=0) {
             $filename = $_FILES["uploadfile"]["name"];
             $temp_name = $_FILES["uploadfile"]["tmp_name"];
             $folder = "img/"."berita/".$filename;
             move_uploaded_file($temp_name, $folder);
-            $update = mysqli_query($connect, "UPDATE berita SET judul='$judul', isi='$isi', gambar='$filename' WHERE id_berita=$id_berita");
+            $insert = mysqli_query($connect, "INSERT INTO berita (id_berita, id_kategori, author, judul, isi, gambar, tanggal) VALUES (NULL, 'BDY', 'admin', '$judul', '$isi', '$filename', now())");
+            // echo mysqli_error($connect);
 
         } else {
-            $update = mysqli_query($connect, "UPDATE berita SET judul='$judul', isi='$isi' WHERE id_berita=$id_berita");
+            // echo "#cek2";
+            $insert = mysqli_query($connect, "INSERT INTO berita (id_berita, id_kategori, author, judul, isi, gambar, tanggal) VALUES (NULL, 'BDY', 'admin', '$judul', '$isi', NULL, now())");
         }
 
-        if ($update) {
-            header("Location:pindah_halaman.php");
+        if ($insert) {
+            header("Location:dashboard.php");
         }
     }
 }
@@ -28,7 +29,7 @@ if (isset($_POST['submit'])) {
         <ol class="breadcrumb">
             <li><i class="fa fa-home"></i><a href="dashboard.php">Home</a></li>
             <li><i class="fa fa-laptop"></i><a href="dashboard.php?page=berita">Berita</a></li>
-            <li><i class="fa fa-laptop"></i>Update Berita</li>						  	
+            <li><i class="fa fa-laptop"></i>Tambah Berita</li>						  	
         </ol>
     </div>
 </div>              
@@ -40,22 +41,16 @@ if (isset($_POST['submit'])) {
             </header>
             <form action="" method="POST" enctype="multipart/form-data">    
                 <table class="table table-striped table-advance table-hover">
-                    <?php
-
-                    $judul = $_GET['judul'];
-                    $isi = $_GET['isi'];
-
-                    echo "<tbody>
+                    <tbody>
                         
                             <tr>
                                 <td style='width: 25%'><label for='judul'>Judul</label></td>
-                                <td><input style='width: 100%' type='text' name='judul' value='$judul'></td>
+                                <td><input style='width: 100%' type='text' name='judul' value=''></td>
                             </tr>
                             <tr>
                                 <td><label for='isi'>Isi</label></td>
-                                <td><textarea style='width: 100%' name='isi' id='' cols='30' rows='10'>$isi</textarea></td>
-                            </tr>"
-                    ?>
+                                <td><textarea style='width: 100%' name='isi' id='' cols='30' rows='10'></textarea></td>
+                            </tr>
                             <tr>
                                 <td>
                                     <label for='inputImage'>Pilih Gambar (Opsional)</label>

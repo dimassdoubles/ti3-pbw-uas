@@ -261,7 +261,7 @@ if (isset($_POST['submit'])) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Tempelemahbang</a>
+          <a class="navbar-brand" href="index.php">Tempelemahbang</a>
         </div>
 
       </div>

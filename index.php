@@ -11,6 +11,8 @@ include "connection.php";
     <title>Tempellemahbang</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -28,6 +30,18 @@ include "connection.php";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
+      .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 50px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+      }
+
+      .fa:hover {
+        opacity: 0.7;
+      }
       body {
         font: 400 15px Lato, sans-serif;
         line-height: 1.8;
@@ -789,6 +803,9 @@ include "connection.php";
         >
       </p>
       <p>Customized by Dimas Saputro</p>
+      <a href="https://instagram.com/dimassdoubles?utm_medium=copy_link" class="fa fa-instagram"></a>
+      <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3BX0WRlLlCQGqZA2itD8itow%3D%3D" class="fa fa-linkedin"></a>
+      <a href="https://github.com/dimassdoubles/ti3-pbw-uas.git" class="fa fa-github"></a>
     </footer>
 
     <script>
